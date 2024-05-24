@@ -100,15 +100,19 @@ window.addEventListener('DOMContentLoaded', () => {
     setClock('.timer', deadline);
 
     // Modal
-    const modalTrigger = document.querySelector('[data-modal]');
+    const modalTrigger = document.querySelectorAll('[data-modal]');
     const modalClose = document.querySelector('[data-close]');
     const modal = document.querySelector('.modal')
 
-    modalTrigger.addEventListener('click', () => {
-        modal.classList.add('show');
-        modal.classList.remove('hide');
-        document.body.style.overflow = "hidden";
+    modalTrigger.forEach(btn => {
+        btn.addEventListener('click', () => {
+            modal.classList.add('show');
+            modal.classList.remove('hide');
+            document.body.style.overflow = "hidden";
+        });
     });
+
+
 
     modalClose.addEventListener('click', () => {
         modal.classList.add('hide');
